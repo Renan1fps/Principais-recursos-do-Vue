@@ -27,3 +27,18 @@ export default defineComponent({
   }
 })
 aqui ao invés de mostrar o nome completo no HTML fazendo a interpolação, eu posso criar uma função que concatena os nome e no HTML eu só faço a chamada da função monstrando o nome completo.
+
+--->METHODS
+Em meu HTML posso ter um dado e nele eu quero atribuir um função ou algo do tipo, posso criar um propriedade METHODS e nela passar um objeto de funções ou apenas uma função. Ex:
+No meu HTML tenho um dado numérico e quero fazer alguma lógica, no caso eu quero incrementar quando apertar o botão, diminuir quando apertar outro botão e resetar em outro botão. Basta criar ele e nas propriedades do button no HTML chamar @click="methods"....
+methods: {
+    incrementar() {
+      this.count++
+    },
+    diminuir() {
+      this.count--
+    },
+    resetar() {
+      this.count = 0
+    }
+  }
