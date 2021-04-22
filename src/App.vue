@@ -1,5 +1,6 @@
 <template>
-  <h1>{{ message }}</h1>
+  <h1>{{ count }}</h1>
+  <button @click="count++">Incrementar</button>
 </template>
 
 <script lang="ts">
@@ -8,14 +9,16 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      message: 'Hello cataline'
+      count: 0
     }
   },
-  beforeMount() {
-    console.log(this.$el)
+  beforeUpdate() {
+    alert('Você irá atualizar!')
   },
-  mounted() {
-    this.$el.style.background = 'red'
+  updated() {
+    if (this.count === 5) {
+      this.count = 6
+    }
   }
 })
 </script>

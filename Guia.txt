@@ -181,3 +181,39 @@ Se eu quiser fazer uma manipulação na DOM o mais cedo possivél o ideal é que
 })
 </script>
 Mas lembrando, eles tem acesso aos dados mas o beforeMount só não tem acesso a DOM
+
+--->BEFOREUPDATE
+Ele não é ativado quando atualizo a pagina mas sim quando há uma atualização de algum dado em meu componente, então ele só será chamado quanddo houver mudanças de dados
+--->UPDATE
+Segue a mesma linha de raciocionio do BEFOREUPDATE
+
+                         ******EXEMPLOS DE USO*****
+Digamos que o usuário está usando minha magina e ele atualiza o dado de contagem, dentro do update posso passar um lógica, como no exemplo abaixo:
+
+<template>
+  <h1>{{ count }}</h1>
+  <button @click="count++">Incrementar</button>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      count: 0
+    }
+  },
+  beforeUpdate() {
+    alert('Você irá atualizar!')
+  },
+  updated() {
+    if (this.count === 5) {
+      this.count = 6
+    }
+  }
+})
+</script>
+
+quando atualizar o dado o meu update se encarregara de não deixar o 5 aparecer. E antes que atualize ele executa uma ação que eu quero (no caso um alert).
+
