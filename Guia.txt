@@ -1,0 +1,11 @@
+import { defineComponent } from 'vue'->Como é um projeto typescript preciso fazer o import da tipagem
+
+
+export default defineComponent({
+  data(){
+    return{
+      //posso retornar qualquer coisa (Objetos, strings, arrays...)
+    }
+  }
+})
+//aqui é onde eu retorno dados que posso acessar no html através da interpolação {{}}
