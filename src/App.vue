@@ -8,15 +8,14 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      message: 'Hello cataline',
-      posts: []
+      message: 'Hello cataline'
     }
   },
-  beforeCreate() {
-    console.log('Antes de ser criado')
+  beforeMount() {
+    console.log(this.$el)
   },
-  created() {
-    console.log('criado')
+  mounted() {
+    this.$el.style.background = 'red'
   }
 })
 </script>

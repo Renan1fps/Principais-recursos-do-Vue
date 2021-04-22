@@ -158,3 +158,26 @@ export default defineComponent({
 
 Usarei o beforeCreate quando eu quiser executar algo o mais cedo possivél mas ele não tenha contato com aplicação
 
+--->BEFOREMOUNT
+Ele tem acesso ao dados mas só depois de montados(depois que tudo é carregado)
+
+--->MOUNT tem acesso a todos os dados da DOM e aos dados da app
+
+                         ******EXEMPLOS DE USO*****
+Se eu quiser fazer uma manipulação na DOM o mais cedo possivél o ideal é que seja no created pois o beforeMount não tem acesso a nada da dom ainda como exemplo abaixo:
+ export default defineComponent({
+  data() {
+    return {
+      message: 'Hello cataline',
+      posts: []
+    }
+  },
+  beforeMount() {
+    this.$el.style.background = 'red' <--nesse caso ele não funciona e minha aplicação  para
+  },
+  mounted() {
+    this.$el.style.background = 'red'<--forma correta de manipular a dom
+  }
+})
+</script>
+Mas lembrando, eles tem acesso aos dados mas o beforeMount só não tem acesso a DOM
