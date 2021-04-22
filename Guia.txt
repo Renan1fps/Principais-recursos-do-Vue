@@ -117,3 +117,44 @@ export default defineComponent({
   }
 })
 </script>
+
+-----------------------------CICLOS DE VIDA---------------------------------------
+--->BEFORECREATE
+
+Ele é executado antes de meu app ser criado e portanto não tem acesso a dados ou outros elementos da minha aplicação
+export default defineComponent({
+  data() {
+    return {
+      message: 'Hello cataline'
+    }
+  },
+  beforeCreate() {
+    console.log('this.message')<--- ele não aparecerá a mensagem pois não tema acesso
+  }
+
+--->CREATE
+executado no momento da aplicação e portanto tem acesso a dados e elementos da minha aplicação
+created() {
+    console.log('criado')
+  }
+                        ******EXEMPLOS DE USO*****
+EX: Se eu tivesse um dado e quisesse que ele fosse carregado o mais cedo possivél, não adiantaria usar o beforeCreate pq ele não consegue acessar os dados da minha aplicação como no exemplo abaixo:
+
+export default defineComponent({
+  data() {
+    return {
+      message: 'Hello cataline',
+      posts: []
+    }
+  },
+  beforeCreate() {
+    this.posts= ['hello', 'exemplo', 'exemplo 2']<--isso não funcionaria, como explicado, ele não tem acesso a dados
+  },
+  created() {
+    this.posts= ['hello', 'exemplo', 'exemplo 2']<--maneira certa, pois os dados serão carregados no momento que for criada
+  }
+})
+</script>
+
+Usarei o beforeCreate quando eu quiser executar algo o mais cedo possivél mas ele não tenha contato com aplicação
+
