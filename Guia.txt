@@ -42,3 +42,19 @@ methods: {
       this.count = 0
     }
   }
+
+  --->WATCH 
+  Serve para caso eu queria ver a manipulação de um dado.
+  ex: Eu quero observar quando o valor de um dado que está sendo mudado no meu HTML. para isso eu coloco watch e abro um objeto
+  e nele coloco uma função com o MESMO nome do dado que quero observar.
+  nele eu posso receber dois parametros (dado antigo e dado novo) e dentro da função posso fazer a lógicaque eu quiser.
+
+ <h1>{{ count }}</h1>
+  <button @click="count++">Incrementar</button>
+  
+   watch: {
+    count(newValue, oldValue) {
+      console.log(oldValue)
+      console.log(newValue)
+    }
+  }
