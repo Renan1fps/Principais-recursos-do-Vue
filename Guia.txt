@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'->Como é um projeto typescript preciso fazer o import da tipagem
 
-
+--->PROPRIEDADE DATA
 export default defineComponent({
   data(){
     return{
@@ -9,3 +9,21 @@ export default defineComponent({
   }
 })
 //aqui é onde eu retorno dados que posso acessar no html através da interpolação {{}}
+
+--->PROPRIEDADE COMPUTED
+serve para retornar um dado com alguma alteração ou manipulção aplicada
+ex: um dado que veio do meu back e está no data (posso fazer uma verificação, aplicar alguma lógica...), ao invés de mostrar diretamente no html é melhor fazer alguma manipulação assim eu posso usar em outro componentes sem ter que estar mostarndo diretamento o dado
+export default defineComponent({
+  data() {
+    return {
+      name: 'Renan',
+      sobrenome: 'Oliveira'
+    }
+  },
+  computed: {
+    fullName(): string {
+      return `${this.name} ${this.sobrenome}`
+    }
+  }
+})
+aqui ao invés de mostrar o nome completo no HTML fazendo a interpolação, eu posso criar uma função que concatena os nome e no HTML eu só faço a chamada da função monstrando o nome completo.
