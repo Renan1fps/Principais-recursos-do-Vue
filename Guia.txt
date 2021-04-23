@@ -217,3 +217,41 @@ export default defineComponent({
 
 quando atualizar o dado o meu update se encarregara de não deixar o 5 aparecer. E antes que atualize ele executa uma ação que eu quero (no caso um alert).
 
+--->BEFOREUNMOUNT
+Executado antes de desmontar minha aplicação, por exemplo o usuario fez alguma manipulação de um dado e fecha a paginha, podemos guardar essa informação no banco e dados ou coisas do tipo.  
+
+--->UNMOUNT
+executa depois da minha DOM ser desmontada, não tenho acesso mais aos dados.
+
+                        ******EXEMPLOS DE USO*****
+
+       <template>
+  <h1>{{ count }}</h1>
+  <button @click="count++">Incrementar</button>
+  <button @click="destroyComponent">Desmontar</button>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      count: 0
+    }
+  },
+  beforeUnmount() {
+    console.log('Salvando a contagem no db')
+  },
+  unmounted() {
+    alert('Obrigado por utilizar o contador')
+  },
+  methods: {
+    destroyComponent() {
+      this.$.appContext.app.unmount(this.$el)
+    }
+  }
+})
+</script> 
+
+antes de minha aplicação ser desmontada, ele irá salvar as alteraçoes no bd e depois de desmontada ele exibe uma mensagem de agradeciemnto simulando alguma ação que posso usar.

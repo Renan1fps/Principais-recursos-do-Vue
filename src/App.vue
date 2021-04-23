@@ -1,6 +1,7 @@
 <template>
   <h1>{{ count }}</h1>
   <button @click="count++">Incrementar</button>
+  <button @click="destroyComponent">Desmontar</button>
 </template>
 
 <script lang="ts">
@@ -12,12 +13,15 @@ export default defineComponent({
       count: 0
     }
   },
-  beforeUpdate() {
-    alert('Você irá atualizar!')
+  beforeUnmount() {
+    console.log('Salvando a contagem no db')
   },
-  updated() {
-    if (this.count === 5) {
-      this.count = 6
+  unmounted() {
+    alert('Obrigado por utilizar o contador')
+  },
+  methods: {
+    destroyComponent() {
+      this.$.appContext.app.unmount(this.$el)
     }
   }
 })
