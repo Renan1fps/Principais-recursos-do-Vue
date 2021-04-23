@@ -429,3 +429,13 @@ export default defineComponent({
 </script>
 Meu products está me retornando uma lista de produtos  então eu faço o v-for=""
 e coloco um nome in products (esse segundo nome sempre tem que ser o que veio do meu data, se fosse materias, teria que ser "nome" in materias... "nome" in frutas...) e passo uma chave que serve como identidicador para não causar bugs no código (deve ser algo único).
+
+--->V-MODEL e mais usados em formulários
+Basicamente os dados pode vir do data() e podem retornar exemplo:
+eu tenho variavéis no meu data e quero Preencher elas com dados que vem de um formulário e depois quero exigir essas mesmas variaveis preenchidas em outro lugar, então basta usar o v-model="nome" <-o nome é a variavél que quero referenciar.
+*temos modificadores ex: 
+->v-model.number="age" para converter o valor padrão para numero
+->v-model.lazy="name" <- basicamente só manda o valor para a variavél quando o valor já estiver completo (quando eu sair desse campo)
+->v-model.trim="name" <- remove os espaçamentos que existe no inicio ou com muitos espaçamentos.
+
+
