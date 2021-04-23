@@ -322,3 +322,58 @@ export default defineComponent({
   }
 })
 </script>
+
+--->V-HTML
+Funciona no mesmo estilo do v-text, só pode ser usada ela em um tag sem possibilidade de escrever ou passar dados no corpo da tag.
+Serve para quando eu guardo textos formatados no banco de dados, ele me retona estranha para ser mostrado ao usuario, então usamos o v-html
+para tirar essa formatação estranha exemplo abaixo:
+
+<template>
+  <p>Acesse: <span v-html="url"></span></p>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      url: '<a href="https://github.com/Renan1fps">Meu github</a>'
+    }
+  }
+})
+</script>
+
+*DICA: somente voce possa usar essa tag, pois o usuario mal intencionado pode passar um código e danificar o sistema.
+ex: um blog que um pessoa escreve ser artigo e ele é salvo no banco de dados, ele será formatado para html e essa pessoa pode passar um script.
+
+--->V-ON 
+Serve para eventos, uso o v-on depois : <-- depois dele falo o evento que vai ser escutado (clicks....) alem disso depois do evento posso passar modificadores como no exemplo v-on:click.shift="" e dentro das aspas passo um metodo que vai acontecer quando esse evento disparar. exemplo abaixo:
+
+<template>
+  <button class="success">
+    <h5 v-on:click="something">Click aqui para disparar um evento!</h5>
+  </button>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {}
+  },
+  methods: {
+    something() {
+      alert('Disparou um evento!')
+    }
+  }
+})
+</script>
+<style scoped>
+.success {
+  background-color: darkgreen;
+}
+</style>
+CASO ESPECIAL: Caso eu queira previnir o comportamento padrao como ao clicar em um link basta fazer como exemplo abaixo:
+<a v-on:click.prevent="something" href="https://github.com/Renan1fps">Click</a>
