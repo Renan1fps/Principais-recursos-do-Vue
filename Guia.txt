@@ -255,3 +255,50 @@ export default defineComponent({
 </script> 
 
 antes de minha aplicação ser desmontada, ele irá salvar as alteraçoes no bd e depois de desmontada ele exibe uma mensagem de agradeciemnto simulando alguma ação que posso usar.
+
+
+**************************DIRETIVAS************************************
+
+--->V-BIND
+Serve para fazer associação de dados para o template, só que para dentro de atributos HTML, como se eu tivesse pegando um id do usuario e passando para o um atributo do html. Basicamente é, se eu quiser usar uma variavél em um atrbuto do HTML tenho que usar o v-bind Ex:
+*atalho do v-bind-> :class ao invés de v-bind:class
+<template>
+  <a v-bind:href="product.url" v-bind:class="changesBackgroundColor">{{
+    product.name
+  }}</a>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      product: {
+        name: 'Sabonete',
+        url: 'http://google.com',
+        stock: false
+      }
+    }
+  },
+  computed: {
+    changesBackgroundColor():string {
+      if (this.product.stock) {
+        return 'verde'
+      } else {
+        return 'vermelho'
+      }
+    }
+  }
+})
+</script>
+
+<style scoped>
+.vermelho {
+  color: red;
+}
+.verde {
+  color: green;
+}
+</style>
+Nesse exemplo estou fazendo a associação do dado de url para dentro do atributo href e pegando o dado stock e passando para dentro do atributo class através de um computed.

@@ -1,7 +1,7 @@
 <template>
-  <h1>{{ count }}</h1>
-  <button @click="count++">Incrementar</button>
-  <button @click="destroyComponent">Desmontar</button>
+  <a v-bind:href="product.url" v-bind:class="changesBackgroundColor">{{
+    product.name
+  }}</a>
 </template>
 
 <script lang="ts">
@@ -10,19 +10,30 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      count: 0
+      product: {
+        name: 'Sabonete',
+        url: 'http://google.com',
+        stock: false
+      }
     }
   },
-  beforeUnmount() {
-    console.log('Salvando a contagem no db')
-  },
-  unmounted() {
-    alert('Obrigado por utilizar o contador')
-  },
-  methods: {
-    destroyComponent() {
-      this.$.appContext.app.unmount(this.$el)
+  computed: {
+    changesBackgroundColor():string {
+      if (this.product.stock) {
+        return 'verde'
+      } else {
+        return 'vermelho'
+      }
     }
   }
 })
 </script>
+
+<style scoped>
+.vermelho {
+  color: red;
+}
+.verde {
+  color: green;
+}
+</style>
