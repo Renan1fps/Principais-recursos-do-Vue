@@ -1,7 +1,6 @@
 <template>
-  <a v-bind:href="product.url" v-bind:class="changesBackgroundColor">{{
-    product.name
-  }}</a>
+  <h1>{{ name }}</h1>
+  <p v-text="name"></p>
 </template>
 
 <script lang="ts">
@@ -10,30 +9,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      product: {
-        name: 'Sabonete',
-        url: 'http://google.com',
-        stock: false
-      }
-    }
-  },
-  computed: {
-    changesBackgroundColor():string {
-      if (this.product.stock) {
-        return 'verde'
-      } else {
-        return 'vermelho'
-      }
+      name: 'renan'
     }
   }
 })
 </script>
-
-<style scoped>
-.vermelho {
-  color: red;
-}
-.verde {
-  color: green;
-}
-</style>

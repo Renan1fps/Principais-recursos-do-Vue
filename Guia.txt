@@ -302,3 +302,23 @@ export default defineComponent({
 }
 </style>
 Nesse exemplo estou fazendo a associação do dado de url para dentro do atributo href e pegando o dado stock e passando para dentro do atributo class através de um computed.
+
+--->V-TEXT 
+Serve como uma interpolação, mas diferente dela, eu não posso misturar com outras coisa, tipo um texto ou um outro dado exemplo abaixo:
+
+<template>
+  <h1>{{ name }} programador </h1> <--aqui posso na tag escrever,passar dados...
+  <p v-text="name"></p> <--aqui só posso usar a variavel no v-text e pronto
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      name: 'renan'
+    }
+  }
+})
+</script>
