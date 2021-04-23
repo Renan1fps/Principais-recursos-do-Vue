@@ -400,3 +400,32 @@ export default defineComponent({
 
 se meu sexo no data retornar masculino ele renderiza em tela o masculino, caso contraio ele renderiza o feminino (podemos ter também o v-else-if)
 *v-if="sexo === 'masculino'"  <--o masculino tem que estar entre aspas simples para não dar conflito com as aspas duplas do v-if=.
+
+--->V-FOR
+Serve para fazer loops em listas, caso eu queria mostrar no meu HTML um dado que me retorna um array... ex:
+<template>
+  <ul>
+    <li v-for="product in products" :key="product.id">
+      {{ product.nome }}
+    </li>
+  </ul>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      products: [
+        { id: 1, nome: 'feijão' },
+        { id: 2, nome: 'arroz' },
+        { id: 3, nome: 'batata' },
+        { id: 4, nome: 'carne' }
+      ]
+    }
+  }
+})
+</script>
+Meu products está me retornando uma lista de produtos  então eu faço o v-for=""
+e coloco um nome in products (esse segundo nome sempre tem que ser o que veio do meu data, se fosse materias, teria que ser "nome" in materias... "nome" in frutas...) e passo uma chave que serve como identidicador para não causar bugs no código (deve ser algo único).
