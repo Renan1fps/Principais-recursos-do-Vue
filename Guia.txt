@@ -377,3 +377,26 @@ export default defineComponent({
 </style>
 CASO ESPECIAL: Caso eu queira previnir o comportamento padrao como ao clicar em um link basta fazer como exemplo abaixo:
 <a v-on:click.prevent="something" href="https://github.com/Renan1fps">Click</a>
+
+---> V-IF e V-else
+vai fazer a lógica que eu passaer se atender as condiçoes, e sempre tem que estar em tags juntas(uma abaixo da outra) como no exemplo:
+
+<template>
+  <h1 v-if="sexo === 'masculino'">Masculino</h1>
+  <h1 v-else>feminino</h1>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  data() {
+    return {
+      sexo: 'Feminino'
+    }
+  }
+})
+</script>
+
+se meu sexo no data retornar masculino ele renderiza em tela o masculino, caso contraio ele renderiza o feminino (podemos ter também o v-else-if)
+*v-if="sexo === 'masculino'"  <--o masculino tem que estar entre aspas simples para não dar conflito com as aspas duplas do v-if=.

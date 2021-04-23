@@ -1,10 +1,6 @@
 <template>
-  <button class="success">
-    <h5 v-on:click="something">Click aqui para disparar um evento!</h5>
-  </button>
-  <a v-on:click.prevent="something" href="https://github.com/Renan1fps"
-    >Click</a
-  >
+  <h1 v-if="sexo === 'masculino'">Masculino</h1>
+  <h1 v-else>feminino</h1>
 </template>
 
 <script lang="ts">
@@ -12,17 +8,10 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   data() {
-    return {}
-  },
-  methods: {
-    something() {
-      alert('Disparou um evento!')
+    return {
+      sexo: 'Feminino'
     }
   }
 })
 </script>
-<style scoped>
-.success {
-  background-color: darkgreen;
-}
-</style>
+
