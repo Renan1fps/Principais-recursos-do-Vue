@@ -1,5 +1,7 @@
 <template>
-  <button class="button-styled">Botão de componente</button>
+  <button class="button-styled">Botão de componente
+    <span>Cataline</span>
+  </button>
 </template>
 
 <script lang="ts">
