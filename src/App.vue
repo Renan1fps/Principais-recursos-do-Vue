@@ -1,19 +1,14 @@
 <template>
-  <div>
-    <h1 v-highlight="'red'"></h1>
-  </div>
+ <ButtonStyled></ButtonStyled>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import ButtonStyled from './components/ButtonStyled.vue'
 
 export default defineComponent({
-  directives: {
-    highlight: {
-      beforeMount(el: HTMLElement, biding){
-        console.log(el)
-      }
-    }
+  components: {
+    ButtonStyled
   }
 })
 </script>
