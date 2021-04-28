@@ -1,13 +1,19 @@
 <template>
-  <button class="button-styled">Botão de componente
-    <span>Cataline</span>
+  <button class="button-styled">{{text}}
   </button>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-export default defineComponent({})
+export default defineComponent({
+  props:{
+    text:{
+      type:[String, Number],
+      default: 'Empty'
+    }
+  }
+})
 </script>
 
 <style scoped>
