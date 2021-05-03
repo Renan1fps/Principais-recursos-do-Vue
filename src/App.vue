@@ -1,18 +1,16 @@
 <template>
-<div>
-  <ButtonStyled text='cadastrar' />
-  <ButtonStyled text='login' />
-</div>
-  
+  <ButtonSlot text="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </ButtonSlot>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import ButtonStyled from './components/ButtonStyled.vue'
+import ButtonSlot from './components/ButtonSlot.vue'
 
 export default defineComponent({
   components: {
-    ButtonStyled
+    ButtonSlot
   }
 })
 </script>
